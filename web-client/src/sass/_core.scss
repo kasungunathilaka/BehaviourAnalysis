@@ -1,0 +1,40 @@
+body {
+    font-family: $primary-font;
+}
+
+.logo-placeholder {
+    vertical-align: middle;
+    width: 80px;
+
+    .main-img {
+        display: flex;
+        justify-content: center;
+
+        .desktop-logo {
+            display: block;
+            padding: 8px;
+        }
+    }
+}
+.page-title {
+    font-size: 1rem;
+    color: #ecf0f1;
+    display: inline-block;
+    padding: 0.7rem 1rem 0 1rem;
+}
+
+//body wrapper
+.main-container {
+    .content-container {
+        .content-area {
+            background-color: #F5F5F5;
+            padding: .5rem .5rem .5rem .5rem;
+        }
+
+        .inner-wrapper {
+            padding: .5rem .5rem .5rem .5rem;
+            background-color: #fff;
+            box-shadow: 1px 3px 4px -1px #ccc;
+        }
+    }
+}

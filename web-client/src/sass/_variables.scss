@@ -1,0 +1,77 @@
+//bootstrap media ranges
+
+
+$lg: "only screen and (min-width: 1200px)";
+$md: "only screen and (max-width: 1199px) and (min-width: 992px)";
+$sm: "only screen and (max-width: 991px) and (min-width: 768px)"; 
+$xs: "only screen and (max-width: 767px) and (min-width: 480px)";
+ 
+$hd: "only screen and (-webkit-min-device-pixel-ratio: 1.5)";
+$tab-landscape : "only screen and (width:1024px)"; 
+$md-and-less: "only screen and (max-width: 1199px)";
+$sm-and-less: "only screen and (max-width: 991px)";
+$xs-and-less: "only screen and (max-width: 767px)";
+$tiny-and-less: "only screen and (max-width: 479px)";
+
+$sm-and-more: "only screen and (min-width: 768px)";
+$md-and-more : "only screen and (min-width: 992px)"; 
+$xs-and-more : "only screen and (max-width: 2000px)";
+
+
+// $Small: "only screen and (max-width: 576px)";
+// $Medium : "only screen and (max-width: 768px)"; 
+// $Large : "only screen and (max-width: 992px)"; 
+// $Extra-large : "only screen and (max-width: 1200px)";
+
+
+// Branding Colors
+
+$main-dark: #002148;
+$main-light:#002F66;
+$alternate-branding:#004a70;
+$secondary-dark: #fb913c;
+
+
+//text
+
+$text-dark :#48505A ;
+$text-light: #ADB0B4;
+
+
+//icons
+
+$icon-color: #333;
+
+
+//other color
+
+$bodybg-color : #F5F5F5;
+$arrow-color : #0094d2;
+$dark-grey : #3D4558;
+$light-grey: #ECEFF1;
+$medium-grey: #ccc;
+$chips-color:#337ab7;
+$mandotory-red:#c92100;
+$mandotory-green: #2f8400;
+$secondary-green: #62a420;
+$black:#000000;
+
+
+$primary-font:"Metropolis", sans-serif;
+
+// Table colors
+
+$tbl-head : #FAFAFA;
+$tbl-highlighted : #F4FAFD;
+
+
+// Error colors
+
+$error-message : #c92100;
+$error-message-dark :#A32100;
+
+
+//chat UI colors
+$blue: #94C2ED;
+$gray: #92959E;
+$white: #ffffff;
