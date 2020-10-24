@@ -1,40 +1,70 @@
 body {
-    font-family: $primary-font;
+  font-family: $primary-font;
 }
 
 .logo-placeholder {
-    vertical-align: middle;
-    width: 80px;
+  vertical-align: middle;
+  width: 80px;
 
-    .main-img {
-        display: flex;
-        justify-content: center;
+  .main-img {
+    display: flex;
+    justify-content: center;
 
-        .desktop-logo {
-            display: block;
-            padding: 8px;
-        }
+    .desktop-logo {
+      display: block;
+      padding: 8px;
     }
+  }
 }
 .page-title {
-    font-size: 1rem;
-    color: #ecf0f1;
-    display: inline-block;
-    padding: 0.7rem 1rem 0 1rem;
+  font-size: 1rem;
+  color: #ecf0f1;
+  display: inline-block;
+  padding: 0.7rem 1rem 0 1rem;
 }
 
-//body wrapper
+// body wrapper
 .main-container {
-    .content-container {
-        .content-area {
-            background-color: #F5F5F5;
-            padding: .5rem .5rem .5rem .5rem;
-        }
-
-        .inner-wrapper {
-            padding: .5rem .5rem .5rem .5rem;
-            background-color: #fff;
-            box-shadow: 1px 3px 4px -1px #ccc;
-        }
+  .content-container {
+    .side-nav-container {
+      background-color: #e8e8e8;
     }
+
+    .content-area {
+      background-color: #f5f5f5;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .inner-wrapper {
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      background-color: #fff;
+      box-shadow: 1px 3px 4px -1px #ccc;
+    }
+  }
+}
+
+// side bar wrapper
+.sidebar-left {
+  .active {
+    background-color: #ecf1f5 !important;
+  }
+}
+
+// welcome component
+.welcome-container {
+  .heading {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+
+  .image {
+    display: block;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content {
+    margin-top: 5px;
+  }
 }
