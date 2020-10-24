@@ -13,6 +13,7 @@ body {
     .desktop-logo {
       display: block;
       padding: 8px;
+      cursor: pointer;
     }
   }
 }
@@ -21,6 +22,7 @@ body {
   color: #ecf0f1;
   display: inline-block;
   padding: 0.7rem 1rem 0 1rem;
+  cursor: pointer;
 }
 
 // body wrapper
@@ -53,8 +55,9 @@ body {
 // welcome component
 .welcome-container {
   .heading {
-    margin-top: 5px;
+    margin-top: 10px;
     font-weight: bold;
+    float: left;
   }
 
   .image {
@@ -66,5 +69,10 @@ body {
 
   .content {
     margin-top: 5px;
+  }
+
+  .start-btn {
+    display: block;
+    margin-left: auto;
   }
 }

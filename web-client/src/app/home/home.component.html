@@ -2,10 +2,10 @@
   <header class="header header-6">
     <div class="div-table-cell logo-placeholder">
       <div class="main-img">
-        <img src="assets/logo.svg" class="desktop-logo" alt="logo">
+        <img src="assets/logo.svg" class="desktop-logo" alt="logo" (click)="navigateToWelcome()">
       </div>
     </div>
-    <span class="page-title">{{ title }}</span>
+    <span class="page-title" (click)="navigateToWelcome()">{{ title }}</span>
   </header>
 
   <div class="content-container">
