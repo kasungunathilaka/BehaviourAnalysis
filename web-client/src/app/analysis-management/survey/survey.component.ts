@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SurveyComponent implements OnInit {
   surveyForm: FormGroup;
-  progressValue = 1;
+  progressValue = 0;
   questionsList = [
     'Are you feeling nervous all the time',
     'Are you having sudden panic attacks',
@@ -52,7 +52,7 @@ export class SurveyComponent implements OnInit {
   }
 
   isLastQuestion() {
-    return this.progressValue === 24;
+    return this.progressValue >= 23;
   }
 
   onRadioClick() {
@@ -60,19 +60,21 @@ export class SurveyComponent implements OnInit {
   }
 
   onPrevious() {
-    if (this.progressValue > 1) {
+    if (this.progressValue > 0) {
       this.progressValue--;
     }
   }
 
   onNext() {
-    if (this.progressValue < 24) {
+    if (this.progressValue < 23) {
       this.progressValue++;
     }
     this.surveyForm.reset();
   }
 
   onCompleteSurvey() {
-
+    if (this.progressValue === 23) {
+      this.progressValue++;
+    }
   }
 }

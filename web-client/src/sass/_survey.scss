@@ -1,7 +1,8 @@
 .survey-container {
   .heading {
     margin-top: 10px;
-    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.05em;
     float: left;
     margin-bottom: 15px;
   }
@@ -12,8 +13,9 @@
   }
 
   .ce-base-text {
-    font-size: 0.875rem;
-    color: $base-font-color;
+    margin-top: 20px;
+    font-size: 16px;
+    letter-spacing: 0.03em;
   }
 
   .ce-info-text {
@@ -23,6 +25,7 @@
 
   .ce-survey-sub-card-left {
     float: left;
+    letter-spacing: 0.03em;
   }
 
   .ce-survey-sub-card-right {
@@ -51,7 +54,7 @@
   }
 
   .clr-form-control {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 30px;
   }
 
@@ -62,4 +65,5 @@
   .info-icon {
     color: $info-base;
   }
+
 }
