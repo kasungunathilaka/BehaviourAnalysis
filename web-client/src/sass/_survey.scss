@@ -29,28 +29,28 @@
   }
 
   .ce-survey-sub-card-right {
-    margin-top: 25px;
+    margin-top: 20px;
     float: right;
   }
 
-  .btn-container {
-    margin-top: 25px;
-    width: 100%;
-    float: left;
+  .break {
+    border-top: 1px solid $text-light;
+    padding-top: 6px;
+    margin-left: 2px;
+    margin-top: 10px;
+    margin-right: 2px;
   }
 
-  .previous {
-    float: left;
-  }
+  .app-btn-row {
+    border-top: 1px solid $text-light;
+    padding-top: 6px;
+    margin-left: 2px;
+    margin-top: 150px;
+    margin-right: 2px;
 
-  .middle {
-    float: right;
-    margin-top: 12px;
-    margin-left: 5px;
-  }
-
-  .next {
-    float: right;
+    &.right {
+      justify-content: flex-end;
+    }
   }
 
   .clr-form-control {
