@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-using BehaviourAnalysis.Domain;
+using BehaviourAnalysis.Domain.Models;
 using BehaviourAnalysis.Persistence.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +15,8 @@ namespace BehaviourAnalysis.Persistence
 
         }
 
-        public DbSet<Question> Customers { get; set; }
-        public DbSet<Questionnaire> Franchisees { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Questionnaire> Questionnaires { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace BehaviourAnalysis.App
+namespace BehaviourAnalysis.App.Functions
 {
-    public static class CompleteSurvey
+    public static class CompleteQuestionnaire
     {
-        [FunctionName("CompleteSurvey")]
+        [FunctionName("CompleteQuestionnaire")]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "survey")] HttpRequest req, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");

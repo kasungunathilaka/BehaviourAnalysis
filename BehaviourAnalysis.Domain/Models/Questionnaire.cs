@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BehaviourAnalysis.Domain
+namespace BehaviourAnalysis.Domain.Models
 {
     public class Questionnaire
     {
