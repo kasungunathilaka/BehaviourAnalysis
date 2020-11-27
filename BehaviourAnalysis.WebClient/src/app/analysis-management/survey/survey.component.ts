@@ -15,7 +15,7 @@ export class SurveyComponent implements OnInit {
     'Are you breathing rapidly',
     'Are you sweating excessively',
     'Are you having troubles in concentration',
-    'Are you having troubles in sleeping ',
+    'Are you having troubles in sleeping',
     'Are you having troubles with work',
     'Are you feeling hopeless',
     'Are you feeling angry',
@@ -33,7 +33,7 @@ export class SurveyComponent implements OnInit {
     'Do you feel like avoiding people or activities',
     'Are you feeling negative',
     'Are you having troubles in focusing',
-    'Are you blamming yourself'
+    'Are you blaming yourself'
   ];
   surveyOption: boolean;
 
