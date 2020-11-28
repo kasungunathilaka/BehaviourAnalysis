@@ -63,5 +63,3 @@ GO
 
 COMMIT;
 GO
-
-
