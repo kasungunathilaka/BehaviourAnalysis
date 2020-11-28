@@ -13,7 +13,7 @@ namespace BehaviourAnalysis.App.Functions
     public static class CompleteQuestionnaire
     {
         [FunctionName("CompleteQuestionnaire")]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "survey")] HttpRequest req, ILogger log)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "questionnaire")] HttpRequest req, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 

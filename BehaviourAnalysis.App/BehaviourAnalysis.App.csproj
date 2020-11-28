@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AzureFunctionsVersion>v3</AzureFunctionsVersion>
@@ -9,6 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BehaviourAnalysis.Persistence\BehaviourAnalysis.Persistence.csproj" />
+    <ProjectReference Include="..\BehaviourAnalysis.Services\BehaviourAnalysis.Services.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">

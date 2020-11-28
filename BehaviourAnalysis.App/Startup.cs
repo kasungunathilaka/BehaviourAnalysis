@@ -3,9 +3,14 @@ using System.IO;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+
+using BehaviourAnalysis.Domain.Interfaces;
 using BehaviourAnalysis.Persistence;
+using BehaviourAnalysis.Persistence.Repositories;
+using BehaviourAnalysis.Services.Interfaces;
+using BehaviourAnalysis.Services.Services;
 
 [assembly: FunctionsStartup(typeof(BehaviourAnalysis.App.Startup))]
 namespace BehaviourAnalysis.App
@@ -25,6 +30,10 @@ namespace BehaviourAnalysis.App
             Configure(configBuilder);
 
             // Azure Function Services
+            builder.Services.AddScoped<IQuestionService, QuestionService>();
+
+            // Repositories   
+            builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
         }
 
         private static void Configure(IConfigurationBuilder builder)
