@@ -1,74 +1,79 @@
 <div class="survey-container">
   <div class="row">
     <section class="form-block">
-      <form [formGroup]="surveyForm">
-        <div class="col-lg-8 col-md-8">
-          <h4 class="heading">Please fill the follwing survey.</h4>
-        </div>
-        <div class="ce-title-bar-right">
-          <span class="mb-0">
-            {{ progressValue }} of 24 parts
-          </span>
-        </div>
-        <div>
-          <clr-progress-bar [clrValue]="progressValue" clrMax="24" clrSuccess></clr-progress-bar>
-        </div>
-        <div class="break"></div>
+      <div *ngIf="!isCompleted;else SurveyCompleted">
+        <form [formGroup]="surveyForm">
+          <div class="col-lg-8 col-md-8">
+            <h4 class="heading">Please fill the follwing survey.</h4>
+          </div>
+          <div class="ce-title-bar-right">
+            <span class="mb-0">
+              {{ progressValue }} of 24 parts
+            </span>
+          </div>
+          <div>
+            <clr-progress-bar [clrValue]="progressValue" clrMax="24" clrSuccess></clr-progress-bar>
+          </div>
+          <div class="break"></div>
 
-        <div class="container mt-4">
-          <div class="row">
-            <div class="col-12">
-              <div class="ce-card-base p-0">
-                <div class="ce-survey-sub-card-header ce-border-bottom d-flex justify-content-between p-4">
-                  <div class="ce-survey-sub-card-left">
-                    <div class="ce-base-text">
-                      <span>{{ questionsList[progressValue] }}?</span>
+          <div class="container mt-4">
+            <div class="row">
+              <div class="col-12">
+                <div class="ce-card-base p-0">
+                  <div class="ce-survey-sub-card-header ce-border-bottom d-flex justify-content-between p-4">
+                    <div class="ce-survey-sub-card-left">
+                      <div class="ce-base-text">
+                        <span>{{ questionsList[progressValue] }}?</span>
+                      </div>
+                      <div>
+                        <clr-radio-container clrInline>
+                          <clr-radio-wrapper>
+                            <input type="radio" clrRadio formControlName="options" name="options" required value=true
+                              [(ngModel)]="surveyOption" (click)="onRadioClick()" />
+                            <label>Yes</label>
+                          </clr-radio-wrapper>
+                          <clr-radio-wrapper>
+                            <input type="radio" clrRadio formControlName="options" name="options" required value=false
+                              [(ngModel)]="surveyOption" (click)="onRadioClick()" />
+                            <label>No</label>
+                          </clr-radio-wrapper>
+                        </clr-radio-container>
+                      </div>
                     </div>
-                    <div>
-                      <clr-radio-container clrInline>
-                        <clr-radio-wrapper>
-                          <input type="radio" clrRadio formControlName="options" name="options" required value=true
-                            [(ngModel)]="surveyOption" (click)="onRadioClick()" />
-                          <label>Yes</label>
-                        </clr-radio-wrapper>
-                        <clr-radio-wrapper>
-                          <input type="radio" clrRadio formControlName="options" name="options" required value=false
-                            [(ngModel)]="surveyOption" (click)="onRadioClick()" />
-                          <label>No</label>
-                        </clr-radio-wrapper>
-                      </clr-radio-container>
-                    </div>
-                  </div>
-                  <div class="ce-survey-sub-card-right">
-                    <div class="ce-info-text">
-                      <em class="bx bx-info-circle"></em><span>
-                        Choose one of the following answers</span>
+                    <div class="ce-survey-sub-card-right">
+                      <div class="ce-info-text">
+                        <em class="bx bx-info-circle"></em><span>
+                          Choose one of the following answers</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="app-btn-row">
-          <button *ngIf="progressValue > 0" class="btn btn-outline form-btn" name="Previous" (click)="onPrevious()">
-            <clr-icon shape="rewind"></clr-icon> Previous
-          </button>
-          <button *ngIf="isLastQuestion()" class="btn btn-primary" name="button" (click)="onCompleteSurvey()"
-            [disabled]="!surveyForm.valid">
-            <clr-icon shape="check"></clr-icon> Submit
-          </button>
-          <button *ngIf="!isLastQuestion()" class="btn btn-outline form-btn" name="button" (click)="onNext()"
-            [disabled]="!surveyForm.valid || progressValue === 23">
-            Next <clr-icon shape="fast-forward"></clr-icon>
-          </button>
-          <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-bottom-right">
-            <clr-icon shape="info-circle" class="info-icon" size="24"></clr-icon>
-            <span class="tooltip-content">Choose an answer continue.</span>
-          </a>
-        </div>
-      </form>
+          <div class="app-btn-row">
+            <button *ngIf="progressValue > 0" class="btn btn-outline form-btn" name="Previous" (click)="onPrevious()">
+              <clr-icon shape="rewind"></clr-icon> Previous
+            </button>
+            <button *ngIf="isLastQuestion()" class="btn btn-primary" name="button" (click)="onCompleteSurvey()"
+              [disabled]="!surveyForm.valid">
+              <clr-icon shape="check"></clr-icon> Submit
+            </button>
+            <button *ngIf="!isLastQuestion()" class="btn btn-outline form-btn" name="button" (click)="onNext()"
+              [disabled]="!surveyForm.valid || progressValue === 23">
+              Next <clr-icon shape="fast-forward"></clr-icon>
+            </button>
+            <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-bottom-right">
+              <clr-icon shape="info-circle" class="info-icon" size="24"></clr-icon>
+              <span class="tooltip-content">Choose an answer continue.</span>
+            </a>
+          </div>
+        </form>
+      </div>
+      <ng-template #SurveyCompleted>
+        <app-survey-complete></app-survey-complete>
+      </ng-template>
     </section>
   </div>
 </div>

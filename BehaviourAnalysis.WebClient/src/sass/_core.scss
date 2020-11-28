@@ -70,6 +70,79 @@ body {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 40px;
+  }
+
+  .content {
+    margin-top: 25px;
+  }
+
+  .start-btn {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+
+// pre loading spinner
+.pre-loader {
+  position: fixed;
+  z-index: 99999999;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #212121;
+  opacity: 0.6;
+
+  .spinner {
+    top: 40%;
+    left: 50%;
+  }
+}
+
+.pre-loader-text {
+  opacity: 0.8;
+  position: fixed;
+  z-index: 99999999;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  top: 47%;
+  left: 49.5%;
+  width: auto;
+  height: auto;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .pre-loader {
+      .spinner {
+          left: 45%;
+        }
+      }
+      .pre-loader-text {
+          left: 41%;
+      }
+}
+
+
+// surve complete component
+.complete-container {
+  .heading {
+    margin-top: 10px;
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    float: left;
+  }
+
+  .image {
+    display: block;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
   }
 
   .content {

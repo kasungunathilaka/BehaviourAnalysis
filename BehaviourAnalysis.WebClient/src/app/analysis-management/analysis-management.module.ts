@@ -6,11 +6,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 import { SharedModule } from '../shared/shared.module';
 import { AnalysisManagementRoutingModule } from './analysis-management-routing.module';
+import { SurveyCompleteComponent } from './survey/survey-complete/survey-complete.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    SurveyComponent
+    SurveyComponent,
+    SurveyCompleteComponent
   ],
   imports: [
     CommonModule,

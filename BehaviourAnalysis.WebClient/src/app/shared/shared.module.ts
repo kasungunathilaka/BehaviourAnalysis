@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
 import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
-    SideNavigationComponent
+    SideNavigationComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { SideNavigationComponent } from './components/side-navigation/side-navig
     RouterModule
   ],
   exports: [
-    SideNavigationComponent
+    SideNavigationComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,10 +19,15 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     ClarityModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+      maxOpened: 3
+    }),
+    HttpClientModule,
     HomeModule
   ],
   providers: [
-
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
