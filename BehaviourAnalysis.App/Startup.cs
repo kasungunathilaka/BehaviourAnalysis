@@ -31,9 +31,11 @@ namespace BehaviourAnalysis.App
 
             // Azure Function Services
             builder.Services.AddScoped<IQuestionService, QuestionService>();
+            builder.Services.AddScoped<IQuestionnaireService, QuestionnaireService>();
 
             // Repositories   
             builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+            builder.Services.AddScoped<IQuestionnaireRepository, QuestionnaireRepository>();
         }
 
         private static void Configure(IConfigurationBuilder builder)

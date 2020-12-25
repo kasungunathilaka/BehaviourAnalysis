@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 
 using BehaviourAnalysis.Domain.Interfaces;
 using BehaviourAnalysis.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace BehaviourAnalysis.Persistence.Repositories
 {
