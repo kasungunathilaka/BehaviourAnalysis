@@ -11,6 +11,7 @@ export class SideNavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
