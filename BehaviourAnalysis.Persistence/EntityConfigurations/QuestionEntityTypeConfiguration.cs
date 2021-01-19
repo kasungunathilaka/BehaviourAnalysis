@@ -17,6 +17,8 @@ namespace BehaviourAnalysis.Persistence.EntityConfigurations
             builder.Property(q => q.QuestionBody)
                 .IsRequired(true)
                 .HasMaxLength(300);
+
+            builder.Ignore(q => q.Answer);
         }
     }
 }

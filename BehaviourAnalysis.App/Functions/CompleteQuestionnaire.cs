@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
@@ -21,12 +22,12 @@ namespace BehaviourAnalysis.App.Functions
         }
 
         [FunctionName("CompleteQuestionnaire")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "questionnaire")] Questionnaire request, ILogger log)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "questionnaire")] List<Question> questions, ILogger log)
         {
             try
             {
                 log.LogInformation("Complete questionnaire function processed a request.");
-                var questionnaire = await _questionnaireService.SaveQuestionnaire(request);
+                var questionnaire = await _questionnaireService.SaveQuestionnaire(questions);
                 return new CreatedResult("CompleteQuestionnaire", questionnaire);
             }
             catch (Exception ex)
