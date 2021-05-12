@@ -6,60 +6,49 @@ BEGIN
         CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
     );
 END;
+
 GO
 
-BEGIN TRANSACTION;
+CREATE TABLE [Question] (
+    [QuestionId] int NOT NULL IDENTITY,
+    [QuestionBody] nvarchar(300) NOT NULL,
+    CONSTRAINT [PK_Question] PRIMARY KEY ([QuestionId])
+);
+
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201127215556_InitialMigration')
-BEGIN
-    CREATE TABLE [Question] (
-        [QuestionId] int NOT NULL IDENTITY,
-        [QuestionBody] nvarchar(300) NOT NULL,
-        CONSTRAINT [PK_Question] PRIMARY KEY ([QuestionId])
-    );
-END;
+CREATE TABLE [Questionnaire] (
+    [QuestionnaireId] int NOT NULL IDENTITY,
+    [Nervous] int NOT NULL,
+    [Panic] int NOT NULL,
+    [BreathingRapidly] int NOT NULL,
+    [Sweating] int NOT NULL,
+    [TroublesInConcentration] int NOT NULL,
+    [TroublesInSleeping] int NOT NULL,
+    [TroublesWithWork] int NOT NULL,
+    [Hopeless] int NOT NULL,
+    [Angry] int NOT NULL,
+    [OverReacting] int NOT NULL,
+    [ChangesInEating] int NOT NULL,
+    [SuicidalThoughts] int NOT NULL,
+    [Tired] int NOT NULL,
+    [CloseFriend] int NOT NULL,
+    [SocialMediaAddiction] int NOT NULL,
+    [WeightGain] int NOT NULL,
+    [MaterialPossession] int NOT NULL,
+    [Shy] int NOT NULL,
+    [StressfulMemories] int NOT NULL,
+    [Nightmares] int NOT NULL,
+    [AvoidingPeople] int NOT NULL,
+    [NegativeThoughts] int NOT NULL,
+    [TroublesInFocusing] int NOT NULL,
+    [BlamingYourself] int NOT NULL,
+    CONSTRAINT [PK_Questionnaire] PRIMARY KEY ([QuestionnaireId])
+);
+
 GO
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201127215556_InitialMigration')
-BEGIN
-    CREATE TABLE [Questionnaire] (
-        [QuestionnaireId] int NOT NULL IDENTITY,
-        [Nervous] bit NOT NULL,
-        [Panic] bit NOT NULL,
-        [BreathingRapidly] bit NOT NULL,
-        [Sweating] bit NOT NULL,
-        [TroublesInConcentration] bit NOT NULL,
-        [TroublesInSleeping] bit NOT NULL,
-        [TroublesWithWork] bit NOT NULL,
-        [Hopeless] bit NOT NULL,
-        [Angry] bit NOT NULL,
-        [OverReacting] bit NOT NULL,
-        [ChangesInEating] bit NOT NULL,
-        [SuicidalThoughts] bit NOT NULL,
-        [Tired] bit NOT NULL,
-        [CloseFriend] bit NOT NULL,
-        [SocialMediaAddiction] bit NOT NULL,
-        [WeightGain] bit NOT NULL,
-        [MaterialPossession] bit NOT NULL,
-        [Shy] bit NOT NULL,
-        [StressfulMemories] bit NOT NULL,
-        [Nightmares] bit NOT NULL,
-        [AvoidingPeople] bit NOT NULL,
-        [NegativeThoughts] bit NOT NULL,
-        [TroublesInFocusing] bit NOT NULL,
-        [BlamingYourself] bit NOT NULL,
-        CONSTRAINT [PK_Questionnaire] PRIMARY KEY ([QuestionnaireId])
-    );
-END;
-GO
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210512074518_InitialMigration', N'3.1.5');
 
-IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201127215556_InitialMigration')
-BEGIN
-    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20201127215556_InitialMigration', N'5.0.0');
-END;
-GO
-
-COMMIT;
 GO
