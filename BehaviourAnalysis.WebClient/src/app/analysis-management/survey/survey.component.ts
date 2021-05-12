@@ -15,7 +15,7 @@ export class SurveyComponent implements OnInit {
   surveyForm: FormGroup;
   progressValue = 0;
   questionsList: string[] = [];
-  surveyOption: boolean;
+  surveyOption: number;
   questions: Question[] = [];
   isCompleted = false;
   questionnaire: Questionnaire;
