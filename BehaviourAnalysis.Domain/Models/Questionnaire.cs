@@ -4,29 +4,29 @@ namespace BehaviourAnalysis.Domain.Models
     public class Questionnaire
     {
         public int QuestionnaireId { get; set; }
-        public bool Nervous { get; set; }
-        public bool Panic { get; set; }
-        public bool BreathingRapidly { get; set; }
-        public bool Sweating { get; set; }
-        public bool TroublesInConcentration { get; set; }
-        public bool TroublesInSleeping { get; set; }
-        public bool TroublesWithWork { get; set; }
-        public bool Hopeless { get; set; }
-        public bool Angry { get; set; }
-        public bool OverReacting { get; set; }
-        public bool ChangesInEating { get; set; }
-        public bool SuicidalThoughts { get; set; }
-        public bool Tired { get; set; }
-        public bool CloseFriend { get; set; }
-        public bool SocialMediaAddiction { get; set; }
-        public bool WeightGain { get; set; }
-        public bool MaterialPossession { get; set; }
-        public bool Shy { get; set; }
-        public bool StressfulMemories { get; set; }
-        public bool Nightmares { get; set; }
-        public bool AvoidingPeople { get; set; }
-        public bool NegativeThoughts { get; set; }
-        public bool TroublesInFocusing { get; set; }
-        public bool BlamingYourself { get; set; }
+        public int Nervous { get; set; }
+        public int Panic { get; set; }
+        public int BreathingRapidly { get; set; }
+        public int Sweating { get; set; }
+        public int TroublesInConcentration { get; set; }
+        public int TroublesInSleeping { get; set; }
+        public int TroublesWithWork { get; set; }
+        public int Hopeless { get; set; }
+        public int Angry { get; set; }
+        public int OverReacting { get; set; }
+        public int ChangesInEating { get; set; }
+        public int SuicidalThoughts { get; set; }
+        public int Tired { get; set; }
+        public int CloseFriend { get; set; }
+        public int SocialMediaAddiction { get; set; }
+        public int WeightGain { get; set; }
+        public int MaterialPossession { get; set; }
+        public int Shy { get; set; }
+        public int StressfulMemories { get; set; }
+        public int Nightmares { get; set; }
+        public int AvoidingPeople { get; set; }
+        public int NegativeThoughts { get; set; }
+        public int TroublesInFocusing { get; set; }
+        public int BlamingYourself { get; set; }
     }
 }

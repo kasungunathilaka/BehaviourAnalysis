@@ -5,6 +5,6 @@ namespace BehaviourAnalysis.Domain.Models
     {
         public int QuestionId { get; set; }
         public string QuestionBody { get; set; }
-        public bool? Answer { get; set; }
+        public int? Answer { get; set; }
     }
 }
