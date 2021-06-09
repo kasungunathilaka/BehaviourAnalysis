@@ -1,14 +1,17 @@
 <div class="complete-container">
-    <div class="row">
-      <div class="col-lg-8 col-md-8">
-        <h3 class="heading">Thank you!</h3>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <button class="btn btn-primary btn-md start-btn" name="button" (click)="navigateToSurvey()">Try Another</button>
-      </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <h3 class="heading">Thank you!</h3>
     </div>
-    <img class="image" src="assets/images/thankyou.png" alt="welcome" />
-    <p class="content">
-        You have successfully completed the survey.
-    </p>
+    <div class="col-lg-4 col-md-4">
+      <button class="btn btn-primary btn-md start-btn" name="button" (click)="navigateToSurvey()">Try Another</button>
+    </div>
   </div>
+  <img class="image" src="assets/images/thankyou.png" alt="welcome" />
+  <p class="content">
+    You have successfully completed the survey.
+  </p>
+  <p class="disorder">
+    {{ disorderMessages }}
+  </p>
+</div>

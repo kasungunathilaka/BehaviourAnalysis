@@ -7,6 +7,7 @@ import { ClarityModule } from '@clr/angular';
 import { SharedModule } from '../shared/shared.module';
 import { AnalysisManagementRoutingModule } from './analysis-management-routing.module';
 import { SurveyCompleteComponent } from './survey/survey-complete/survey-complete.component';
+import { SurveySharedService } from './survey/survey.shared.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,9 @@ import { SurveyCompleteComponent } from './survey/survey-complete/survey-complet
     SharedModule,
     ClarityModule,
     AnalysisManagementRoutingModule
+  ],
+  providers: [
+    SurveySharedService
   ]
 })
 export class AnalysisManagementModule { }

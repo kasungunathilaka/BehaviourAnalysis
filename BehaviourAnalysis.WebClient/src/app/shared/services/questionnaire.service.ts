@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Question } from '../models/question.model';
-import { Questionnaire } from '../models/questionnaire.model';
 import { RequestHandlerService } from './common/request-handler.service';
 
 @Injectable({
@@ -14,10 +13,10 @@ export class QuestionnaireService {
     this.baseUrl = environment.baseUrl;
   }
 
-  SaveQuestionnaire(questions: Question[]): Promise<Questionnaire> {
+  SaveQuestionnaire(questions: Question[]): Promise<string> {
     return new Promise((resolve, reject) => {
       this.requestHandlerService.post(this.baseUrl + 'questionnaire', questions).subscribe(
-        (response: Questionnaire) => {
+        (response: string) => {
           resolve(response);
         },
         error => {

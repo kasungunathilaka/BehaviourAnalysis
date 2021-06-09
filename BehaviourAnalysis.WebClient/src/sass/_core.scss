@@ -70,11 +70,15 @@ body {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
     padding-top: 40px;
   }
 
   .content {
-    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    font-size: medium;
   }
 
   .start-btn {
@@ -82,7 +86,6 @@ body {
     margin-left: auto;
   }
 }
-
 
 // pre loading spinner
 .pre-loader {
@@ -118,15 +121,14 @@ body {
 
 @media (min-width: 320px) and (max-width: 767px) {
   .pre-loader {
-      .spinner {
-          left: 45%;
-        }
-      }
-      .pre-loader-text {
-          left: 41%;
-      }
+    .spinner {
+      left: 45%;
+    }
+  }
+  .pre-loader-text {
+    left: 41%;
+  }
 }
-
 
 // surve complete component
 .complete-container {
@@ -147,6 +149,13 @@ body {
 
   .content {
     margin-top: 25px;
+    font-size: x-large;
+    text-align: center;
+  }
+
+  .disorder {
+    font-size: large;
+    text-align: center;
   }
 
   .start-btn {

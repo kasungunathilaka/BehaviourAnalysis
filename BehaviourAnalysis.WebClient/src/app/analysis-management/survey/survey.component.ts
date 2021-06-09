@@ -5,6 +5,7 @@ import { Questionnaire } from 'src/app/shared/models/questionnaire.model';
 import { ToastrServices } from 'src/app/shared/services/common/toastr.service';
 import { QuestionService } from 'src/app/shared/services/question.service';
 import { QuestionnaireService } from 'src/app/shared/services/questionnaire.service';
+import { SurveySharedService } from './survey.shared.service';
 
 @Component({
   selector: 'app-survey',
@@ -24,6 +25,7 @@ export class SurveyComponent implements OnInit {
     private formBuilder: FormBuilder,
     private questionService: QuestionService,
     private questionnaireService: QuestionnaireService,
+    private surveySharedService: SurveySharedService,
     private toastrServices: ToastrServices
   ) { }
 
@@ -80,6 +82,7 @@ export class SurveyComponent implements OnInit {
     this.questions[this.progressValue - 1].answer = this.surveyOption;
     this.isCompleted = true;
     this.questionnaireService.SaveQuestionnaire(this.questions).then((response) => {
+      this.surveySharedService.setDisorder(response);
       this.toastrServices.success('Survey saved successfully.', 'Survey');
     }).catch((error) => {
       if (error) {
