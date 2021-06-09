@@ -1,12 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\BehaviourAnalysis.Domain\BehaviourAnalysis.Domain.csproj" />
+    <PackageReference Include="Microsoft.ML" Version="1.5.5" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BehaviourAnalysisML.Model\BehaviourAnalysisML.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectCapability Include="ModelBuilderGenerated" />
+  </ItemGroup>
 </Project>

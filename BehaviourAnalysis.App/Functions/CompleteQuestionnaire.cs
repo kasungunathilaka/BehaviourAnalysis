@@ -15,10 +15,12 @@ namespace BehaviourAnalysis.App.Functions
     public class CompleteQuestionnaire
     {
         private IQuestionnaireService _questionnaireService { get; set; }
+        private IPredictionService _predictionService { get; set; }
 
-        public CompleteQuestionnaire(IQuestionnaireService questionnaireService)
+        public CompleteQuestionnaire(IQuestionnaireService questionnaireService, IPredictionService predictionService)
         {
             _questionnaireService = questionnaireService;
+            _predictionService = predictionService;
         }
 
         [FunctionName("CompleteQuestionnaire")]
@@ -27,8 +29,9 @@ namespace BehaviourAnalysis.App.Functions
             try
             {
                 log.LogInformation("Complete questionnaire function processed a request.");
-                var questionnaire = await _questionnaireService.SaveQuestionnaire(questions);
-                return new CreatedResult("CompleteQuestionnaire", questionnaire);
+                Questionnaire questionnaire = await _questionnaireService.SaveQuestionnaire(questions);
+                string disorder = _predictionService.PredictDisorder(questionnaire);
+                return new OkObjectResult(disorder);
             }
             catch (Exception ex)
             {
