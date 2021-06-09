@@ -11,7 +11,8 @@ namespace BehaviourAnalysisML.ConsoleApp
     public static class ModelBuilder
     {
         private static string TRAIN_DATA_FILEPATH = @"C:\Users\KasunG\Desktop\Behaviour Analysis\Project\behavior-analysis\BehaviourAnalysis\Resources\processed_data_training.csv";
-        private static string MODEL_FILEPATH = @"C:\Users\KasunG\AppData\Local\Temp\MLVSTools\BehaviourAnalysisML\BehaviourAnalysisML.Model\MLModel.zip";
+        private static string TEST_DATA_FILEPATH = @"C:\Users\KasunG\Desktop\Behaviour Analysis\Project\behavior-analysis\BehaviourAnalysis\Resources\processed_data_testing.csv";
+        private static string MODEL_FILEPATH = @"C:\Users\KasunG\Desktop\Behaviour Analysis\Project\behavior-analysis\BehaviourAnalysis\BehaviourAnalysisML.Model\MLModel.zip";
         // Create MLContext to be shared across the model creation workflow objects 
         // Set a random seed for repeatable/deterministic results across multiple trainings.
         private static MLContext mlContext = new MLContext(seed: 1);
@@ -26,6 +27,13 @@ namespace BehaviourAnalysisML.ConsoleApp
                                             allowQuoting: true,
                                             allowSparse: false);
 
+            IDataView testingDataView = mlContext.Data.LoadFromTextFile<ModelInput>(
+                                            path: TEST_DATA_FILEPATH,
+                                            hasHeader: true,
+                                            separatorChar: ',',
+                                            allowQuoting: true,
+                                            allowSparse: false);
+
             // Build training pipeline
             IEstimator<ITransformer> trainingPipeline = BuildTrainingPipeline(mlContext);
 
@@ -33,7 +41,8 @@ namespace BehaviourAnalysisML.ConsoleApp
             ITransformer mlModel = TrainModel(mlContext, trainingDataView, trainingPipeline);
 
             // Evaluate quality of Model
-            Evaluate(mlContext, trainingDataView, trainingPipeline);
+            EvaluateUsingCrossValidation(mlContext, trainingDataView, trainingPipeline);
+            EvaluateUsingTestData(mlContext, testingDataView, mlModel);
 
             // Save model
             SaveModel(mlContext, mlModel, MODEL_FILEPATH, trainingDataView.Schema);
@@ -65,18 +74,38 @@ namespace BehaviourAnalysisML.ConsoleApp
             return model;
         }
 
-        private static void Evaluate(MLContext mlContext, IDataView trainingDataView, IEstimator<ITransformer> trainingPipeline)
+        private static void EvaluateUsingCrossValidation(MLContext mlContext, IDataView trainingDataView, IEstimator<ITransformer> trainingPipeline)
         {
             // Cross-Validate with single dataset (since we don't have two datasets, one for training and for evaluate)
             // in order to evaluate and get the model's accuracy metrics
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("=============== Cross-validating to get model's accuracy metrics ===============");
             var crossValidationResults = mlContext.MulticlassClassification.CrossValidate(trainingDataView, trainingPipeline, numberOfFolds: 5, labelColumnName: "Disorder");
             PrintMulticlassClassificationFoldsAverageMetrics(crossValidationResults);
         }
 
+        private static void EvaluateUsingTestData(MLContext mlContext, IDataView testingDataView, ITransformer trainedModel)
+        {
+            // Use trained model to make inferences on test data
+            IDataView testDataPredictions = trainedModel.Transform(testingDataView);
+
+            // Validate with testing dataset
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("=============== Validating with testing dataset to get model's accuracy metrics ===============");
+            MulticlassClassificationMetrics trainedModelMetrics = mlContext.MulticlassClassification.Evaluate(testDataPredictions, labelColumnName: "Disorder");
+            PrintMulticlassClassificationMetrics(trainedModelMetrics);
+
+            Console.WriteLine();
+            Console.WriteLine(trainedModelMetrics.ConfusionMatrix.GetFormattedConfusionTable());
+        }
+
         private static void SaveModel(MLContext mlContext, ITransformer mlModel, string modelRelativePath, DataViewSchema modelInputSchema)
         {
             // Save/persist the trained model to a .ZIP file
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine($"=============== Saving the model  ===============");
             mlContext.Model.Save(mlModel, modelInputSchema, GetAbsolutePath(modelRelativePath));
             Console.WriteLine("The model is saved to {0}", GetAbsolutePath(modelRelativePath));
@@ -94,6 +123,7 @@ namespace BehaviourAnalysisML.ConsoleApp
 
         public static void PrintMulticlassClassificationMetrics(MulticlassClassificationMetrics metrics)
         {
+            Console.WriteLine();
             Console.WriteLine($"************************************************************");
             Console.WriteLine($"*    Metrics for multi-class classification model   ");
             Console.WriteLine($"*-----------------------------------------------------------");
@@ -131,6 +161,7 @@ namespace BehaviourAnalysisML.ConsoleApp
             var logLossReductionStdDeviation = CalculateStandardDeviation(logLossReductionValues);
             var logLossReductionConfidenceInterval95 = CalculateConfidenceInterval95(logLossReductionValues);
 
+            Console.WriteLine();
             Console.WriteLine($"*************************************************************************************************************");
             Console.WriteLine($"*       Metrics for Multi-class Classification model      ");
             Console.WriteLine($"*------------------------------------------------------------------------------------------------------------");

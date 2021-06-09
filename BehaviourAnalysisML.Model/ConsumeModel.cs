@@ -25,7 +25,7 @@ namespace BehaviourAnalysisML.Model
             MLContext mlContext = new MLContext();
 
             // Load model & create prediction engine
-            string modelPath = @"C:\Users\KasunG\AppData\Local\Temp\MLVSTools\BehaviourAnalysisML\BehaviourAnalysisML.Model\MLModel.zip";
+            string modelPath = @"C:\Users\KasunG\Desktop\Behaviour Analysis\Project\behavior-analysis\BehaviourAnalysis\BehaviourAnalysisML.Model\MLModel.zip";
             ITransformer mlModel = mlContext.Model.Load(modelPath, out var modelInputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
 
