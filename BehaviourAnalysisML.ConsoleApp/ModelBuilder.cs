@@ -56,8 +56,26 @@ namespace BehaviourAnalysisML.ConsoleApp
                                       .Append(mlContext.Transforms.NormalizeMinMax("Features", "Features"))
                                       .AppendCacheCheckpoint(mlContext);
             // Set the training algorithm 
+
+            //Maximum Entropy Multiclass Classifier
+            Console.WriteLine("=============== Maximum Entropy Multiclass Classifier ===============");
             var trainer = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(labelColumnName: "Disorder", featureColumnName: "Features")
                                       .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
+
+            //Linear Multiclass Classifier
+            //Console.WriteLine("=============== Linear Multiclass Classifier ===============");
+            //var trainer = mlContext.MulticlassClassification.Trainers.SdcaNonCalibrated(labelColumnName: "Disorder", featureColumnName: "Features")
+            //                          .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
+
+            //Maximum Entropy Multiclass Classifier trained with L-BFGS method
+            //Console.WriteLine("=============== Maximum Entropy Multiclass Classifier trained with L-BFGS method ===============");
+            //var trainer = mlContext.MulticlassClassification.Trainers.LbfgsMaximumEntropy(labelColumnName: "Disorder", featureColumnName: "Features")
+            //                          .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
+
+            //Naive Bayes Multiclass Classifier
+            //Console.WriteLine("=============== Naive Bayes Multiclass Classifier ===============");
+            //var trainer = mlContext.MulticlassClassification.Trainers.NaiveBayes(labelColumnName: "Disorder", featureColumnName: "Features")
+            //                          .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
 
             var trainingPipeline = dataProcessPipeline.Append(trainer);
 
@@ -66,6 +84,7 @@ namespace BehaviourAnalysisML.ConsoleApp
 
         public static ITransformer TrainModel(MLContext mlContext, IDataView trainingDataView, IEstimator<ITransformer> trainingPipeline)
         {
+            Console.WriteLine();
             Console.WriteLine("=============== Training  model ===============");
 
             ITransformer model = trainingPipeline.Fit(trainingDataView);
