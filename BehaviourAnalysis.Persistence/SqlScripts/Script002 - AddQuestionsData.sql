@@ -14,7 +14,7 @@ INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Are you feeling tired all
 INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Do you have a close friend that you can share your feelings')
 INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Are you addicted to the social media platforms (Facebook, Instagram, Twitter etc.)')
 INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Do you feel like rapid weight gain')
-INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Do you feel like wanting material possession')
+INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Do you feel like obsessed with material possession')
 INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Are you feeling shy')
 INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Are you experiencing any emotional flashbacks of stressful memories')
 INSERT INTO [dbo].[Question] ([QuestionBody]) VALUES ('Are you having nightmares')
